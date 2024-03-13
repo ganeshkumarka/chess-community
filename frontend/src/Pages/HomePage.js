@@ -14,6 +14,9 @@ import { Link } from 'react-router-dom';
 
 import Login from '../components/Authentication/Login';
 import Signup from '../components/Authentication/SignUp';
+import top1Image from './top1.png';
+import top2Image from './lefttop.png';
+import top3Image from './topfull.png';
 // maxW='xl'
 const HomePage = () => {
   return (
@@ -26,24 +29,25 @@ const HomePage = () => {
       //justifyContent="center"
       flexDirection="column"
       justifyContent="end"
-      align-items="flex-end"
-      p = "50px"
+      //alignItems="center"
+      //alignItems="flex-end"
+      p = "10px"
       // bg="white"
       w="100%"
       //h="100%"
       m="5px 0px 5px 0px"
-      borderRadius="10px"
-      borderWidth="1px"
-      //alignItems="flex-start"
+      borderRadius="7px"
+      borderWidth="0px"
+      alignItems="flex-start"
       marginLeft="auto"
       marginRight="auto"
       h="200px"
       position="relative"
-      >
-       <Tabs variant='soft-rounded' width="100%" position="absolute" bottom="0" right="0">
-        <TabList mb="1em" color="red">
-          <Tab width="10%" style={{ color: 'red' }}><Link to="/login">Login</Link></Tab>
-          <Tab width="10%" style={{ color: 'red' }}><Link to="/signup">SignUp</Link></Tab>
+      ><img src={top3Image} alt="img "style={{ width: '1450px', height: '500px' }} />
+       <Tabs variant='soft-rounded' width="100%" position="absolute" top="140" left="1000" zIndex={2}>
+        <TabList mb="1em" color="red" classname="tablist1">
+          <Tab width="10%" _hover={{ bg: 'blue.500' }} bg="red" fontWeight="bold" fontSize="lg" style={{ color: 'black' }} ><Link to="/login">Login</Link></Tab>
+          <Tab width="10%" _hover={{ bg: 'blue.500' }} bg="red" fontWeight="bold" fontSize="lg" style={{ color: 'black' }}><Link to="/signup">SignUp</Link></Tab>
          </TabList>
          <TabPanels>
           <TabPanel>
@@ -54,31 +58,34 @@ const HomePage = () => {
          </TabPanel>
       </TabPanels>
       </Tabs>
+       {/* <Box position="absolute" right="10px" top="10px" zIndex={1}>
+          <img src={top2Image} alt="Right Image" style={{ width: '700px', height: '178.5px' }} />
+        </Box> */}
 
       {/* <Text fontSize="2xl" fontFamily="Work sans" color="black">CUSAT CHESS COMMUNITY</Text>   */}
     </Box>
       <Box
        d="flex"
       justifyContent="center"
-      p = "2px"
+      p = "5px"
       bgGradient="linear(to-r,rgba(0,0,0,0.7), pink.200, black)"    
       w="100%"
-      h="100%"
-      m="15px 0px 15px 0px"
+      //h="100%"
+      m="15px 10px 15px 10px"
       borderRadius="1px"
-      borderWidth="1px"
+      borderWidth="0px"
       alignItems="flex-start"
       marginLeft="auto"
       marginRight="auto"
       width="100%"
       > <Tabs variant='soft-rounded' width="100%" >
-  <TabList mb="1em" color="red">
-    <Tab width="50%" style={{ color: 'red' }}>Members</Tab>
-    <Tab width="50%" style={{ color: 'red' }}>Discussion forum</Tab>
-    <Tab width="50%" style={{ color: 'red' }}>Tournaments</Tab>
-    <Tab width="50%" style={{ color: 'red' }}>Achievements</Tab>
-    <Tab width="50%" style={{ color: 'red' }}>News</Tab>
-    <Tab width="50%" style={{ color: 'red' }}>About Us</Tab>
+  <TabList mb="1em" color="red" classname="tablist2">
+    <Tab _hover={{ bg: 'blue.500' }} bg="#DFF5FF"  width="50%" fontWeight="bold" fontSize="lg" style={{ color: 'black' }}>Members</Tab>
+    <Tab _hover={{ bg: 'blue.500' }} bg="#DFF5FF" width="50%" fontWeight="bold" fontSize="lg" style={{ color: 'black' }}>Discussion forum</Tab>
+    <Tab _hover={{ bg: 'blue.500' }} bg="#DFF5FF" width="50%" fontWeight="bold" fontSize="lg" style={{ color: 'black' }}>Tournaments</Tab>
+    <Tab _hover={{ bg: 'blue.500' }} bg="#DFF5FF" width="50%" fontWeight="bold" fontSize="lg" style={{ color: 'black' }}>Achievements</Tab>
+    <Tab _hover={{ bg: 'blue.500' }} bg="#DFF5FF" width="50%" fontWeight="bold" fontSize="lg" style={{ color: 'black' }}>News</Tab>
+    <Tab _hover={{ bg: 'blue.500' }} bg="#DFF5FF" width="50%" fontWeight="bold" fontSize="lg" style={{ color: 'black' }}>About Us</Tab>
   </TabList>
   <TabPanels>
     <TabPanel>
@@ -93,18 +100,18 @@ const HomePage = () => {
       </Box>  
       <Box className="container" display="flex" justifyContent="space-around">
       <Box className="section" width="30%" bgGradient="linear(to-r,rgba(0,0,0,0.7), pink.200, black)" >
-        <Text as="h2" fontSize="xl" fontWeight="bold" mb={4}>
+        <Text as="h2" bg="white" fontSize="xl" fontWeight="bold" mb={4} >
           Announcements
         </Text>
         <UnorderedList className="announcement-list">
           {/* Announcement items will be added dynamically here */}
-          <ListItem>Announcement 1</ListItem>
+          <ListItem >Announcement 1</ListItem>
           <ListItem>Announcement 2</ListItem>
           <ListItem>Announcement 3</ListItem>
         </UnorderedList>
       </Box>
       <Box className="section" width="30%" bgGradient="linear(to-r,rgba(0,0,0,0.7), pink.200, black)" h="440px">
-        <Text as="h2" fontSize="xl" fontWeight="bold" mb={4}>
+        <Text as="h2" bg="white" fontSize="xl" fontWeight="bold" mb={4}>
           Events
         </Text>
         <UnorderedList className="event-list">
@@ -115,12 +122,12 @@ const HomePage = () => {
         </UnorderedList>
       </Box>
       <Box className="section" width="30%" bgGradient="linear(to-r,rgba(0,0,0,0.7), pink.200, black)" h="440px" >
-        <Text as="h2" fontSize="xl" fontWeight="bold" mb={4}>
+        <Text as="h2" bg="white" fontSize="xl" fontWeight="bold" mb={4}>
           Gallery
         </Text>
         <Box className="gallery" mx={0} h="200px">
           {/* Gallery images will be added dynamically here */}
-          <Image src="./top1.png" alt="Image 1" mb={2} />
+          <Image src="./" alt="Image 1" mb={2} />
           <Image src="./top1.png" alt="Image 2" mb={2} />
           <Image src="./top1.png" alt="Image 3" mb={2} />
         </Box>

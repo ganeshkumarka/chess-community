@@ -64,8 +64,105 @@
 // export default Login
 
 
+// import React, { useState } from 'react';
+// import {
+//   Box,
+//   Button,
+//   FormControl,
+//   FormLabel,
+//   Input,
+//   InputGroup,
+//   InputRightElement,
+//   VStack,
+// } from '@chakra-ui/react';
+
+// const Login = () => {
+//   const [showPassword, setShowPassword] = useState(false);
+//   const [email, setEmail] = useState('');
+//   const [password, setPassword] = useState('');
+
+//   const togglePasswordVisibility = () => setShowPassword(!showPassword);
+
+//   const handleSubmit = () => {
+//     // Your login logic goes here
+//     console.log('Logging in...');
+//   };
+
+//   return (
+//     <Box
+//       w="100%"
+//       maxW="400px"
+//       mx="auto"
+//       mt="8"
+//       p="6"
+//       bg="white"
+//       boxShadow="md"
+//       borderRadius="md"
+//     >
+//       <VStack spacing="6">
+//         <FormControl id="email" isRequired>
+//           <FormLabel>Email</FormLabel>
+//           <Input
+//             type="email"
+//             placeholder="Enter your email"
+//             value={email}
+//             onChange={(e) => setEmail(e.target.value)}
+//           />
+//         </FormControl>
+
+//         <FormControl id="password" isRequired>
+//           <FormLabel>Password</FormLabel>
+//           <InputGroup>
+//             <Input
+//               type={showPassword ? 'text' : 'password'}
+//               placeholder="Enter your password"
+//               value={password}
+//               onChange={(e) => setPassword(e.target.value)}
+//             />
+//             <InputRightElement width="3rem">
+//               <Button h="1.5rem" size="sm" onClick={togglePasswordVisibility}>
+//                 {showPassword ? 'Hide' : 'Show'}
+//               </Button>
+//             </InputRightElement>
+//           </InputGroup>
+//         </FormControl>
+
+//         <Button
+//           colorScheme="blue"
+//           width="100%"
+//           onClick={handleSubmit}
+//         >
+//           Login
+//         </Button>
+
+//         <Button
+//           variant="outline"
+//           colorScheme="gray"
+//           width="100%"
+//           onClick={() => {
+//             setEmail('guest@example.com');
+//             setPassword('123456');
+//           }}
+//         >
+//           Use Guest Credentials
+//         </Button>
+//       </VStack>
+//     </Box>
+//   );
+// };
+
+// export default Login;
+
+// Login.js
+//import AuthService from 'frontend\src\services\AuthService.js';
+
+
+import { useHistory } from 'react-router-dom';
+import { Link } from 'react-router-dom';
+
 import React, { useState } from 'react';
-import {
+import { Redirect } from 'react-router-dom';
+import { 
   Box,
   Button,
   FormControl,
@@ -75,18 +172,43 @@ import {
   InputRightElement,
   VStack,
 } from '@chakra-ui/react';
+import AuthService from 'C:/Desktop/samplec/frontend/src/services/AuthService.js';
 
 const Login = () => {
-  const [showPassword, setShowPassword] = useState(false);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [loggedIn, setLoggedIn] = useState(false);
+  const [error, setError] = useState('');
+  const history = useHistory();
+  const [redirect, setRedirect] = useState(false);
+  
 
-  const togglePasswordVisibility = () => setShowPassword(!showPassword);
-
-  const handleSubmit = () => {
-    // Your login logic goes here
-    console.log('Logging in...');
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      await AuthService.login(email, password);
+      if (email === 'testuser@gmail.com' && password === 'testpassword') {
+      // Redirect to the desired page (replace '/dashboard' with your desired path)
+       setRedirect(true);
+      setLoggedIn(true);
+      if (redirect) {
+    return <Redirect to="/" />;
+  }
+    } 
+      //setLoggedIn(true);
+    } catch (error) {
+        //history.push('/');
+      setError('Invalid email or password');
+    }
   };
+
+  if (redirect) {
+    return <Redirect to="/" />;
+  }
+
+  if (loggedIn) {
+    return <Redirect to="/" />;
+  }
 
   return (
     <Box
@@ -114,16 +236,11 @@ const Login = () => {
           <FormLabel>Password</FormLabel>
           <InputGroup>
             <Input
-              type={showPassword ? 'text' : 'password'}
+              type="password"
               placeholder="Enter your password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
             />
-            <InputRightElement width="3rem">
-              <Button h="1.5rem" size="sm" onClick={togglePasswordVisibility}>
-                {showPassword ? 'Hide' : 'Show'}
-              </Button>
-            </InputRightElement>
           </InputGroup>
         </FormControl>
 
@@ -134,18 +251,8 @@ const Login = () => {
         >
           Login
         </Button>
-
-        <Button
-          variant="outline"
-          colorScheme="gray"
-          width="100%"
-          onClick={() => {
-            setEmail('guest@example.com');
-            setPassword('123456');
-          }}
-        >
-          Use Guest Credentials
-        </Button>
+        <p style={{ textAlign: 'center', marginTop: '20px', fontSize: '18px' }}>Don't have an account?  <Link to="/signup" style={{ color: 'red', textDecoration: 'underline' }}>Sign up</Link></p>
+        {error && <Box color="red.500">{error}</Box>}
       </VStack>
     </Box>
   );

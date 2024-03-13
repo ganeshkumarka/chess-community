@@ -90,8 +90,108 @@
 
 
 
+// import React, { useState } from 'react';
+// import { Button, FormControl, FormLabel, Input, InputGroup, InputRightElement, VStack, Box } from '@chakra-ui/react';
+
+// const SignUp = () => {
+//     const [showPassword, setShowPassword] = useState(false);
+//     const [name, setName] = useState('');
+//     const [email, setEmail] = useState('');
+//     const [password, setPassword] = useState('');
+//     const [confirmPassword, setConfirmPassword] = useState('');
+
+//     const togglePasswordVisibility = () => setShowPassword(!showPassword);
+
+//     const handleSubmit = () => {
+//         // Your sign-up logic goes here
+//         console.log('Signing up...');
+//     };
+
+//     return (
+//         <Box
+//             w="100%"
+//             maxW="400px"
+//             mx="auto"
+//             mt="8"
+//             p="6"
+//             bg="white"
+//             boxShadow="md"
+//             borderRadius="md"
+//         >
+//             <VStack spacing="6">
+//                 <FormControl id='name' isRequired>
+//                     <FormLabel>Name</FormLabel>
+//                     <Input
+//                         type='text'
+//                         placeholder='Enter your name'
+//                         value={name}
+//                         onChange={(e) => setName(e.target.value)}
+//                     />
+//                 </FormControl>
+
+//                 <FormControl id='email' isRequired>
+//                     <FormLabel>Email</FormLabel>
+//                     <Input
+//                         type='email'
+//                         placeholder='Enter your email'
+//                         value={email}
+//                         onChange={(e) => setEmail(e.target.value)}
+//                     />
+//                 </FormControl>
+
+//                 <FormControl id='password' isRequired>
+//                     <FormLabel>Password</FormLabel>
+//                     <InputGroup>
+//                         <Input
+//                             type={showPassword ? 'text' : 'password'}
+//                             placeholder='Enter your password'
+//                             value={password}
+//                             onChange={(e) => setPassword(e.target.value)}
+//                         />
+//                         <InputRightElement width="3rem">
+//                             <Button h="1.5rem" size="sm" onClick={togglePasswordVisibility}>
+//                                 {showPassword ? 'Hide' : 'Show'}
+//                             </Button>
+//                         </InputRightElement>
+//                     </InputGroup>
+//                 </FormControl>
+
+//                 <FormControl id='confirm-password' isRequired>
+//                     <FormLabel>Confirm Password</FormLabel>
+//                     <InputGroup>
+//                         <Input
+//                             type={showPassword ? 'text' : 'password'}
+//                             placeholder='Confirm your password'
+//                             value={confirmPassword}
+//                             onChange={(e) => setConfirmPassword(e.target.value)}
+//                         />
+//                         <InputRightElement width="3rem">
+//                             <Button h="1.5rem" size="sm" onClick={togglePasswordVisibility}>
+//                                 {showPassword ? 'Hide' : 'Show'}
+//                             </Button>
+//                         </InputRightElement>
+//                     </InputGroup>
+//                 </FormControl>
+
+//                 <Button
+//                     colorScheme="blue"
+//                     width="100%"
+//                     onClick={handleSubmit}
+//                 >
+//                     Sign Up
+//                 </Button>
+//             </VStack>
+//         </Box>
+//     );
+// };
+
+// export default SignUp;
+
+
+
 import React, { useState } from 'react';
-import { Button, FormControl, FormLabel, Input, InputGroup, InputRightElement, VStack, Box } from '@chakra-ui/react';
+import { Button, FormControl, FormLabel, Input, InputGroup, InputRightElement, VStack, Box, Heading } from '@chakra-ui/react';
+import { Link } from 'react-router-dom';
 
 const SignUp = () => {
     const [showPassword, setShowPassword] = useState(false);
@@ -103,6 +203,46 @@ const SignUp = () => {
     const togglePasswordVisibility = () => setShowPassword(!showPassword);
 
     const handleSubmit = () => {
+      const handleSubmit = async () => {
+    // Validate form fields before submitting
+    if (!name || !email || !password || !confirmPassword) {
+        console.log('Please fill in all fields');
+        return;
+    }
+
+    if (password !== confirmPassword) {
+        console.log('Passwords do not match');
+        return;
+    }
+
+    try {
+        // Send a POST request to your backend server to create a new user
+        const response = await fetch('https://example.com/api/signup', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                name,
+                email,
+                password
+            })
+        });
+
+        if (response.ok) {
+            // User successfully signed up
+            console.log('User signed up successfully');
+            // Optionally, redirect the user to another page
+            // history.push('/dashboard');
+        } else {
+            // Error occurred during sign-up
+            console.error('Error signing up:', response.statusText);
+        }
+    } catch (error) {
+        console.error('Error:', error.message);
+    }
+};
+
         // Your sign-up logic goes here
         console.log('Signing up...');
     };
@@ -115,10 +255,12 @@ const SignUp = () => {
             mt="8"
             p="6"
             bg="white"
-            boxShadow="md"
-            borderRadius="md"
+            boxShadow="lg"
+            borderRadius="xl"
         >
             <VStack spacing="6">
+                <Heading as="h2" size="lg" textAlign="center">Sign Up</Heading>
+
                 <FormControl id='name' isRequired>
                     <FormLabel>Name</FormLabel>
                     <Input
@@ -149,7 +291,13 @@ const SignUp = () => {
                             onChange={(e) => setPassword(e.target.value)}
                         />
                         <InputRightElement width="3rem">
-                            <Button h="1.5rem" size="sm" onClick={togglePasswordVisibility}>
+                            <Button
+                                h="1.5rem"
+                                size="sm"
+                                onClick={togglePasswordVisibility}
+                                variant="ghost"
+                                colorScheme="gray"
+                            >
                                 {showPassword ? 'Hide' : 'Show'}
                             </Button>
                         </InputRightElement>
@@ -166,7 +314,13 @@ const SignUp = () => {
                             onChange={(e) => setConfirmPassword(e.target.value)}
                         />
                         <InputRightElement width="3rem">
-                            <Button h="1.5rem" size="sm" onClick={togglePasswordVisibility}>
+                            <Button
+                                h="1.5rem"
+                                size="sm"
+                                onClick={togglePasswordVisibility}
+                                variant="ghost"
+                                colorScheme="gray"
+                            >
                                 {showPassword ? 'Hide' : 'Show'}
                             </Button>
                         </InputRightElement>
@@ -181,6 +335,7 @@ const SignUp = () => {
                     Sign Up
                 </Button>
             </VStack>
+             <p style={{ textAlign: 'center', marginTop: '20px', fontSize: '18px' }}>Already have an account?  <Link to="/login" style={{ color: 'red', textDecoration: 'underline' }}>Login</Link></p>
         </Box>
     );
 };

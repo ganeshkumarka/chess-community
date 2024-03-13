@@ -11,3 +11,13 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+.tablist2.chakra-tabs__tab--selected {
+  background-color: transparent !important;
+  border-color: transparent !important;
+  color: inherit !important;
+}
+.tablist2.chakra-tabs__tab--selected{
+  background-color: transparent !important;
+  border-color: transparent !important;
+  color: inherit !important;  
+}

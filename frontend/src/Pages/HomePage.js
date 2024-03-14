@@ -13,7 +13,7 @@ import {
 import { Link } from 'react-router-dom';
 
 import Login from '../components/Authentication/Login';
-import Signup from '../components/Authentication/SignUp';
+//import Signup from '../components/Authentication/SignUp';
 import top1Image from './top1.png';
 import top2Image from './lefttop.png';
 import top3Image from './topfull.png';
@@ -69,7 +69,7 @@ const HomePage = () => {
       justifyContent="center"
       p = "5px"
       bgGradient="linear(to-r,rgba(0,0,0,0.7), pink.200, black)"    
-      w="100%"
+      //w="100%"
       //h="100%"
       m="15px 10px 15px 10px"
       borderRadius="1px"
@@ -80,7 +80,7 @@ const HomePage = () => {
       width="100%"
       > <Tabs variant='soft-rounded' width="100%" >
   <TabList mb="1em" color="red" classname="tablist2">
-    <Tab _hover={{ bg: 'blue.500' }} bg="#DFF5FF"  width="50%" fontWeight="bold" fontSize="lg" style={{ color: 'black' }}>Members</Tab>
+    <Tab _hover={{ bg: 'blue.500' }} bg="#DFF5FF" width="50%" fontWeight="bold" fontSize="lg" style={{ color: 'black'}}>Members</Tab>
     <Tab _hover={{ bg: 'blue.500' }} bg="#DFF5FF" width="50%" fontWeight="bold" fontSize="lg" style={{ color: 'black' }}>Discussion forum</Tab>
     <Tab _hover={{ bg: 'blue.500' }} bg="#DFF5FF" width="50%" fontWeight="bold" fontSize="lg" style={{ color: 'black' }}>Tournaments</Tab>
     <Tab _hover={{ bg: 'blue.500' }} bg="#DFF5FF" width="50%" fontWeight="bold" fontSize="lg" style={{ color: 'black' }}>Achievements</Tab>
@@ -99,9 +99,9 @@ const HomePage = () => {
           {/* <Text fontSize="2xl" fontFamily="Work sans" color="red"></Text> */}
       </Box>  
       <Box className="container" display="flex" justifyContent="space-around">
-      <Box className="section" width="30%" bgGradient="linear(to-r,rgba(0,0,0,0.7), pink.200, black)" >
+      <Box className="section" width="30%" bgGradient="linear(to-r,rgba(32, 22, 68, 0.7), pink.200,pink.300 )" >
         <Text as="h2" bg="white" fontSize="xl" fontWeight="bold" mb={4} >
-          Announcements
+          ANNOUNCEMENTS
         </Text>
         <UnorderedList className="announcement-list">
           {/* Announcement items will be added dynamically here */}
@@ -110,9 +110,9 @@ const HomePage = () => {
           <ListItem>Announcement 3</ListItem>
         </UnorderedList>
       </Box>
-      <Box className="section" width="30%" bgGradient="linear(to-r,rgba(0,0,0,0.7), pink.200, black)" h="440px">
+      <Box className="section" width="30%" bgGradient="linear(to-r, pink.200,pink.300,pink.200)" h="440px">
         <Text as="h2" bg="white" fontSize="xl" fontWeight="bold" mb={4}>
-          Events
+          EVENT
         </Text>
         <UnorderedList className="event-list">
           {/* Event items will be added dynamically here */}
@@ -121,15 +121,15 @@ const HomePage = () => {
           <ListItem>Event 3</ListItem>
         </UnorderedList>
       </Box>
-      <Box className="section" width="30%" bgGradient="linear(to-r,rgba(0,0,0,0.7), pink.200, black)" h="440px" >
+      <Box className="section" width="30%" bgGradient="linear(to-r, pink.200, rgba(32, 22, 68, 0.7))" h="440px" borderRadius="10px" >
         <Text as="h2" bg="white" fontSize="xl" fontWeight="bold" mb={4}>
-          Gallery
+          GALLERY
         </Text>
         <Box className="gallery" mx={0} h="200px">
           {/* Gallery images will be added dynamically here */}
-          <Image src="./" alt="Image 1" mb={2} />
+          {/* <Image src="./" alt="Image 1" mb={2} />
           <Image src="./top1.png" alt="Image 2" mb={2} />
-          <Image src="./top1.png" alt="Image 3" mb={2} />
+          <Image src="./top1.png" alt="Image 3" mb={2} /> */}
         </Box>
       </Box>
     </Box>

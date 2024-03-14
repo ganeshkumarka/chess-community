@@ -159,7 +159,7 @@
 
 import { useHistory } from 'react-router-dom';
 import { Link } from 'react-router-dom';
-
+import axios from 'axios';
 import React, { useState } from 'react';
 import { Redirect } from 'react-router-dom';
 import { 
@@ -186,29 +186,37 @@ const Login = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await AuthService.login(email, password);
-      if (email === 'testuser@gmail.com' && password === 'testpassword') {
-      // Redirect to the desired page (replace '/dashboard' with your desired path)
-       setRedirect(true);
-      setLoggedIn(true);
-      if (redirect) {
-    return <Redirect to="/" />;
-  }
-    } 
-      //setLoggedIn(true);
+      const response = await axios.post('/api/login', { email, password });
+      if (response.status === 200) {
+        console.log('Login successful');
+        setLoggedIn(true);
+        // Redirect to the desired page after successful login
+      }
     } catch (error) {
-        //history.push('/');
+      console.error(error);
       setError('Invalid email or password');
     }
   };
 
-  if (redirect) {
-    return <Redirect to="/" />;
+  if (loggedIn) {
+    // Redirect to the desired page after successful login
+    return <Redirect to="/chat" />;
   }
 
-  if (loggedIn) {
-    return <Redirect to="/" />;
-  }
+    // async function handleSubmit() (e){
+    //     e.preventDefault();
+    //     try{
+
+    //         await.post("http://localhosst:3000/",{
+    //             email.password
+    //         })
+    //     }
+    // }  catch(0){
+    //     console.log(e);
+    // }
+
+
+
 
   return (
     <Box

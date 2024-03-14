@@ -14,7 +14,7 @@ function App() {
      <Router>
     <div className="App">
       <Route path="/" component={HomePage} exact />
-      <Route path="/chat" component={ChatPage} exact />
+      <Route path="/chat" component={ChatPage}/>
       {/* <Route path="/login" component={Login} exact /> */}
       <Route path="/login" component={Login} />
       <Route path="/signup" component={SignUp} />

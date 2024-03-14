@@ -8,9 +8,11 @@ import {
   TabPanel,
   TabPanels,
   Tabs,
-  Image, UnorderedList, ListItem,Flex
+  Image, UnorderedList, ListItem,Flex,Icon
 } from '@chakra-ui/react'
 import { Link } from 'react-router-dom';
+import { FaChessBoard, FaNewspaper,FaUsers, FaComments, FaTrophy, FaInfoCircle,FaSignInAlt, FaUserPlus  } from 'react-icons/fa';
+
 
 import Login from '../components/Authentication/Login';
 //import Signup from '../components/Authentication/SignUp';
@@ -46,8 +48,8 @@ const HomePage = () => {
       ><img src={top3Image} alt="img "style={{ width: '1450px', height: '500px' }} />
        <Tabs variant='soft-rounded' width="100%" position="absolute" top="140" left="1000" zIndex={2}>
         <TabList mb="1em" color="red" classname="tablist1">
-          <Tab width="10%" _hover={{ bg: 'blue.500' }} bg="red" fontWeight="bold" fontSize="lg" style={{ color: 'black' }} ><Link to="/login">Login</Link></Tab>
-          <Tab width="10%" _hover={{ bg: 'blue.500' }} bg="red" fontWeight="bold" fontSize="lg" style={{ color: 'black' }}><Link to="/signup">SignUp</Link></Tab>
+          <Tab width="10%" _hover={{ bg: 'blue.500' }} bg="red" fontWeight="bold" fontSize="lg" style={{ color: 'black' }} ><Icon as={FaSignInAlt} boxSize={6} mr={2} /><Link to="/login">Login</Link></Tab>
+          <Tab width="10%" _hover={{ bg: 'blue.500' }} bg="red" fontWeight="bold" fontSize="lg" style={{ color: 'black' }}><Icon as={FaUserPlus} boxSize={6} mr={2} /><Link to="/signup">SignUp</Link></Tab>
          </TabList>
          <TabPanels>
           <TabPanel>
@@ -80,12 +82,12 @@ const HomePage = () => {
       width="100%"
       > <Tabs variant='soft-rounded' width="100%" >
   <TabList mb="1em" color="red" classname="tablist2">
-    <Tab _hover={{ bg: 'blue.500' }} bg="#DFF5FF" width="50%" fontWeight="bold" fontSize="lg" style={{ color: 'black'}}><Link to="/members">Members</Link></Tab>
-    <Tab _hover={{ bg: 'blue.500' }} bg="#DFF5FF" width="50%" fontWeight="bold" fontSize="lg" style={{ color: 'black' }}><Link to="/">Discussion forum</Link></Tab>
-    <Tab _hover={{ bg: 'blue.500' }} bg="#DFF5FF" width="50%" fontWeight="bold" fontSize="lg" style={{ color: 'black' }}><Link to="/tournament">Tournaments</Link></Tab>
-    <Tab _hover={{ bg: 'blue.500' }} bg="#DFF5FF" width="50%" fontWeight="bold" fontSize="lg" style={{ color: 'black' }}><Link to="/achievements">Achievements</Link></Tab>
-    <Tab _hover={{ bg: 'blue.500' }} bg="#DFF5FF" width="50%" fontWeight="bold" fontSize="lg" style={{ color: 'black' }}><Link to="/news">News</Link></Tab>
-    <Tab _hover={{ bg: 'blue.500' }} bg="#DFF5FF" width="50%" fontWeight="bold" fontSize="lg" style={{ color: 'black' }}><Link to="/about">About Us</Link></Tab>
+    <Tab _hover={{ bg: 'blue.500' }} bg="#DFF5FF" width="50%" fontWeight="bold" fontSize="lg" style={{ color: 'black'}}><Icon as={FaUsers} boxSize={6} mr={2} /><Link to="/members">Members</Link></Tab>
+    <Tab _hover={{ bg: 'blue.500' }} bg="#DFF5FF" width="50%" fontWeight="bold" fontSize="lg" style={{ color: 'black' }}><Icon as={FaComments} boxSize={6} mr={2} /><Link to="/">Discussion forum</Link></Tab>
+    <Tab _hover={{ bg: 'blue.500' }} bg="#DFF5FF" width="50%" fontWeight="bold" fontSize="lg" style={{ color: 'black' }}><Icon as={FaChessBoard} boxSize={6} mr={2} /><Link to="/tournament">Tournaments</Link></Tab>
+    <Tab _hover={{ bg: 'blue.500' }} bg="#DFF5FF" width="50%" fontWeight="bold" fontSize="lg" style={{ color: 'black' }}><Icon as={FaTrophy} boxSize={6} mr={2} /><Link to="/achievements">Achievements</Link></Tab>
+    <Tab _hover={{ bg: 'blue.500' }} bg="#DFF5FF" width="50%" fontWeight="bold" fontSize="lg" style={{ color: 'black' }}><Icon as={FaNewspaper} boxSize={6} mr={2} /><Link to="/news">News</Link></Tab>
+    <Tab _hover={{ bg: 'blue.500' }} bg="#DFF5FF" width="50%" fontWeight="bold" fontSize="lg" style={{ color: 'black' }}><Icon as={FaInfoCircle} boxSize={6} mr={2} /><Link to="/about">About Us</Link></Tab>
   </TabList>
   <TabPanels>
     <TabPanel>
@@ -179,6 +181,9 @@ const HomePage = () => {
 
     </Box>
     </Container>
+
+
+
   )
 }
 

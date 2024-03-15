@@ -367,7 +367,7 @@ import {
 } from '@chakra-ui/react';
 import { FaLinkedin, FaTwitter, FaGithub, FaBars } from 'react-icons/fa';
 
-const Members = () => {
+const MembersPage = () => {
   const { colorMode } = useColorMode();
   const cardBg = colorMode === 'light' ? 'white' : 'gray.800';
   const textColor = colorMode === 'light' ? 'gray.600' : 'gray.400';
@@ -546,4 +546,4 @@ const Members = () => {
   );
 };
 
-export default Members;
+export default MembersPage;

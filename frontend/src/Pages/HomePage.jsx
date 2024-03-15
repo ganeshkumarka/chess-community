@@ -135,11 +135,7 @@ const HomePage = () => {
   </Text>
   <Flex className="gallery" direction="column" alignItems="center" mx={0} h="calc(100% - 40px)" overflowY="auto"> */}
     {/* Gallery images */}
-    {/* <Image src={top1Image} alt="Image 1" mb={2} boxSize="80%" objectFit="cover" borderRadius="10px" />
-    <Image src={top2Image} alt="Image 2" mb={2} boxSize="80%" objectFit="cover" borderRadius="10px" />
-    <Image src={top1Image} alt="Image 1" mb={2} boxSize="80%" objectFit="cover" borderRadius="10px" />
-    <Image src={top3Image} alt="Image 3" mb={2} boxSize="80%" objectFit="cover" borderRadius="10px" />
-    <Image src={top2Image} alt="Image 2" mb={2} boxSize="80%" objectFit="cover" borderRadius="10px" /> */}
+   
     {/* Add more images here */}
   {/* </Flex> */}
 {/* </Box> */}
@@ -177,11 +173,11 @@ const HomePage = () => {
     <Image src={top1Image} alt="Image 3" mb={2} objectFit="cover" borderRadius="10px" />
     {/* Add more images here */}
   </Flex>
-</Box>
+   </Box>
 
     </Box>
-    </Container>
 
+    </Container>
 
 
   )

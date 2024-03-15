@@ -23,7 +23,7 @@ import top1Image from './top1.png';
 import top2Image from './lefttop.png';
 import top3Image from './topfull.png';
 
-const AboutPage = () => {
+const Achievements = () => {
   // Define state variables for drawer
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
 
@@ -89,4 +89,4 @@ const AboutPage = () => {
   );
 };
 
-export default AboutPage;
+export default Achievements;

@@ -9,6 +9,7 @@ import AboutPage from './Pages/AboutPage';
 import Achievements from './Pages/Achievements';
 import NewsPage from './Pages/NewsPage';
 import Tournament from './Pages/Tournament';
+import UserPage from './Pages/UserPage';
 
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import ChatPage from './Pages/ChatPage';
@@ -30,7 +31,9 @@ function App() {
       <Route path="/achievements" component={Achievements} />
       <Route path="/news" component={NewsPage} />
       <Route path="/tournament" component={Tournament} />
+      <Route path="/userpage/:email" component={UserPage} />
 
+      
     </div>
     </Router>
   );

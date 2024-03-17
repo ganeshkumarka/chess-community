@@ -182,6 +182,13 @@ const NewsPage = () => {
       content:
         'After a closely contested election, we are pleased to announce that Jane Smith has been elected as the new president of the CUSAT Chess Club. We wish her all the best in her new role.',
     },
+     {
+      title: 'Upcoming Chess Tournament',
+      date: 'May 15, 2023',
+      author: 'John Doe',
+      content:
+        'The CUSAT Chess Community is excited to announce our upcoming chess tournament. The event will take place on May 15, 2023, at the university campus. All members are encouraged to participate and showcase their skills.',
+    },
   ]);
   const [loading, setLoading] = useState(false);
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
@@ -190,19 +197,19 @@ const NewsPage = () => {
     setIsDrawerOpen(!isDrawerOpen);
   };
 
-  const loadMoreNews = () => {
-    setLoading(true);
-    setTimeout(() => {
-      const newNews = Array.from({ length: 10 }, (_, index) => ({
-        title: `News Item ${newsItems.length + index + 1}`,
-        date: new Date().toDateString(),
-        author: 'Chess Community',
-        content: 'This is a sample news item.',
-      }));
-      setNewsItems((prevNews) => [...prevNews, ...newNews].slice(0, 10)); // Limiting news to maximum of 10
-      setLoading(false);
-    }, 1000);
-  };
+  // const loadMoreNews = () => {
+  //   setLoading(true);
+  //   setTimeout(() => {
+  //     const newNews = Array.from({ length: 10 }, (_, index) => ({
+  //       title: `News Item ${newsItems.length + index + 1}`,
+  //       date: new Date().toDateString(),
+  //       author: 'Chess Community',
+  //       content: 'This is a sample news item.',
+  //     }));
+  //     setNewsItems((prevNews) => [...prevNews, ...newNews].slice(0, 10)); // Limiting news to maximum of 10
+  //     setLoading(false);
+  //   }, 1000);
+  // };
 
   return (
     <Box mt={6}>
@@ -215,8 +222,8 @@ const NewsPage = () => {
             <DrawerBody>
               <List spacing={3}>
                 <ListItem _hover={{ color: 'blue.500', cursor: 'pointer' }}>
-                   <Icon as={FaHome} /><Link to="/">Home</Link>
-                </ListItem>
+                    <Link to="/home">HomePage</Link>
+                  </ListItem>
                 <ListItem _hover={{ color: 'blue.500', cursor: 'pointer' }}>
                    <Link to="/">Discussion Forum</Link>
                 </ListItem>
@@ -267,7 +274,7 @@ const NewsPage = () => {
             ))}
           </Stack>
           <Flex justifyContent="center" mt={8}>
-            <Button
+            {/* <Button
               colorScheme="blue"
               onClick={loadMoreNews}
               isLoading={loading}
@@ -275,7 +282,7 @@ const NewsPage = () => {
             >
               {loading ? <Spinner size="sm" mr={2} /> : null}
               Load More News
-            </Button>
+            </Button> */}
           </Flex>
         </Box>
       </Box>

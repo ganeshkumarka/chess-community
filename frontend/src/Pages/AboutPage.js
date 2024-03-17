@@ -62,16 +62,16 @@ const AboutPage = () => {
                     <Link to="/">HomePage</Link>
                   </ListItem>
                   <ListItem _hover={{ color: 'blue.500', cursor: 'pointer' }}>
-                    Option 2
+                    <Link to="/members">Members</Link>
                   </ListItem>
                   <ListItem _hover={{ color: 'blue.500', cursor: 'pointer' }}>
-                    Option 3
+                    <Link to="/">Discussion</Link>
                   </ListItem>
                   <ListItem _hover={{ color: 'blue.500', cursor: 'pointer' }}>
-                    Option 4
+                    <Link to="/achievements">Achievements</Link>
                   </ListItem>
                   <ListItem _hover={{ color: 'blue.500', cursor: 'pointer' }}>
-                    Option 5
+                    <Link to="/news">News</Link>
                   </ListItem>
                 </List>
               </DrawerBody>

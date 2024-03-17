@@ -21,9 +21,8 @@ function App() {
   return (
      <Router>
     <div className="App">
-      <Route path="/" component={HomePage} exact />
+      <Route path="/" component={HomePage} exact/>
       <Route path="/chat" component={ChatPage}/>
-      {/* <Route path="/login" component={Login} exact /> */}
       <Route path="/login" component={Login} />
       <Route path="/signup" component={SignUp} />
       <Route path="/members" component={MembersPage} />
@@ -32,7 +31,7 @@ function App() {
       <Route path="/news" component={NewsPage} />
       <Route path="/tournament" component={Tournament} />
       <Route path="/userpage/:email" component={UserPage} />
-
+      {/* <Route path="/userpage/:email/members" components={MembersPage}/> */}
       
     </div>
     </Router>

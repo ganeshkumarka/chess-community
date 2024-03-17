@@ -217,7 +217,7 @@
 //fourth one with logout
 
 import React, { useEffect, useState } from 'react';
-import { useHistory, useParams } from 'react-router-dom';
+import { Redirect, useHistory, useParams } from 'react-router-dom';
 import axios from 'axios';
 import { Box, Flex, Text, IconButton, Drawer, DrawerOverlay, DrawerContent, DrawerCloseButton, DrawerHeader, DrawerBody, List, ListItem, Link, Button } from '@chakra-ui/react';
 import { FaBars } from 'react-icons/fa';
@@ -257,9 +257,8 @@ const UserPage = () => {
   if (!userData) {
     return <div>Loading...</div>;
   }
-
   return (
-    <Flex>
+    <Flex>       
       <Box bg={isDrawerOpen ? 'gray.800' : 'gray.200'} p={4} borderRadius="md" ml={0} alignSelf="flex-start" position="absolute" top={5} left={5}>
         <IconButton icon={<FaBars />} aria-label="Toggle Navigation" onClick={handleDrawerToggle} mb={2} />
         <Drawer placement="left" onClose={handleDrawerToggle} isOpen={isDrawerOpen}>
@@ -301,7 +300,9 @@ const UserPage = () => {
         <Text fontSize="lg" color="red">Email: {userData.email}</Text>
         <Text fontSize="lg" color="red">WELCOME</Text>
       </Box>
+      {/* <UserProfile data={userData} /> Replace placeholder content with UserProfile component */}
     </Flex>
+   
   );
 };
 

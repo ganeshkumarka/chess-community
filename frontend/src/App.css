@@ -5,7 +5,7 @@
     background-image: url(./bg1.jpg);
     background-size:cover;
     background-position:center;
-
+    width:device-width;
     font-family: 'Work Sans', sans-serif;
     text-align: center;
     background-color: #282c34;

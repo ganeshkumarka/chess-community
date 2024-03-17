@@ -45,6 +45,8 @@ const HomePage = () => {
       marginRight="auto"
       h="200px"
       position="relative"
+      bgImage={top1Image}
+      bgSize="cover"
       ><img src={top3Image} alt="img "style={{ width: '1450px', height: '500px' }} />
        <Tabs variant='soft-rounded' width="100%" position="absolute" top="140" left="1000" zIndex={2}>
         <TabList mb="1em" color="red" classname="tablist1">

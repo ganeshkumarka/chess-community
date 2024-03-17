@@ -351,7 +351,7 @@ const Login = () => {
           Login
         </Button>
         <p style={{ textAlign: 'center', marginTop: '20px', fontSize: '18px' }}>Don't have an account? <Link to="/signup" style={{ color: 'red', textDecoration: 'underline' }}>Sign up</Link></p>
-        <p style={{ textAlign: 'center', marginTop: '20px', fontSize: '18px' }}>Back to home<Link to="/" style={{ color: 'red', textDecoration: 'underline' }}>home</Link></p>
+        <p style={{ textAlign: 'center', marginTop: '20px', fontSize: '18px' }}>Back to <Link to="/" style={{ color: 'red', textDecoration: 'underline' }}>home</Link></p>
         {error && <Box color="red.500">{error}</Box>}
       </VStack>
     </Box>

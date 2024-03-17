@@ -125,11 +125,11 @@ function generateUserId(name) {
 // Endpoint to register a new user
 app.post("/api/add-user", async (req, res) => {
   try {
-    const { name, email, password } = req.body;
+    const { pic,name, email, password } = req.body;
 
     // Check if name, email, and password are provided
-    if (!name || !email || !password) {
-      return res.status(400).json({ message: "Name, email, and password are required" });
+    if (!name || !email || !password || !pic ) {
+      return res.status(400).json({ message: "Pic,Name, email, and password are required" });
     }
 
     // Check if user already exists
@@ -143,6 +143,7 @@ app.post("/api/add-user", async (req, res) => {
     //const userId=123;
     // Create a new User document
     const newUser = new User({
+    pic
       userId,
       name,
       email,

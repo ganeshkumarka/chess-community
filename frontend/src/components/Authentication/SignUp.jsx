@@ -337,13 +337,191 @@
 
 
 
-//from 
+//from here
 
+// import React, { useState } from 'react';
+// import { Button, FormControl, FormLabel, Input, InputGroup, InputRightElement, VStack, Box, Heading } from '@chakra-ui/react';
+// import { Link, Redirect } from 'react-router-dom';
+// import { useHistory } from 'react-router-dom';
+
+
+// const SignUp = () => {
+//     const [showPassword, setShowPassword] = useState(false);
+//     const [name, setName] = useState('');
+//     const [email, setEmail] = useState('');
+//     const [password, setPassword] = useState('');
+//     const [confirmPassword, setConfirmPassword] = useState('');
+//     const [error, setError] = useState('');
+//     const [successMessage, setSuccessMessage] = useState(''); 
+
+    
+//     // Define setSuccessMessage
+//     const history = useHistory();
+//     const togglePasswordVisibility = () => setShowPassword(!showPassword);
+
+//   const handleSubmit = async () => {
+//         // Validate form fields before submitting
+//         if (!name || !email || !password || !confirmPassword) {
+//             setError('Please fill in all fields');
+//             return;
+//         }
+
+//         if (password !== confirmPassword) {
+//             setError('Passwords do not match');
+//             return;
+//         }
+
+//         try {
+//             // Send a POST request to your backend server to create a new user
+//             const response = await fetch('/api/add-user', {
+//                 method: 'POST',
+//                 headers: {
+//                     'Content-Type': 'application/json'
+//                 },
+//                 body: JSON.stringify({
+//                     pic,
+//                     name,
+//                     email,
+//                     password
+//                 })
+//             });
+
+//             if (response.ok) {
+//                 // User successfully signed up
+//                 setSuccessMessage('User signed up successfully');
+//                 // Redirect the user to another page after successful signup
+//                 history.push('/login');
+//             } else if (response.status === 400) {
+//                 // Handle specific error cases
+//                 const data = await response.json();
+//                 setError(data.message);
+//             } 
+//             // else if(response.status===201){
+//             //     const data = await response.json();
+//             //     setError(data.message);
+//             // }
+//             else {
+//                 // Handle other errors
+//                 setError('Error signing up');
+//             }
+//         } catch (error) {
+//             console.error('Error:', error.message);
+//             setError('Internal server error');
+//         }
+//         return (
+//         <div>
+//             {successMessage && <div>{successMessage}</div>}
+//             {error && <div>{error}</div>}
+//             {/* Your sign-up form JSX */}
+//         </div>
+//          );
+//     };
+    
+
+//     return (
+//         <Box
+//             w="100%"
+//             maxW="400px"
+//             mx="auto"
+//             mt="8"
+//             p="6"
+//             bg="white"
+//             boxShadow="lg"
+//             borderRadius="xl"
+//         >
+//             <VStack spacing="6">
+//                 <Heading as="h2" size="lg" textAlign="center">Sign Up</Heading>
+
+//                 <FormControl id='name' isRequired>
+//                     <FormLabel>Name</FormLabel>
+//                     <Input
+//                         type='text'
+//                         placeholder='Enter your name'
+//                         value={name}
+//                         onChange={(e) => setName(e.target.value)}
+//                     />
+//                 </FormControl>
+
+//                 <FormControl id='email' isRequired>
+//                     <FormLabel>Email</FormLabel>
+//                     <Input
+//                         type='email'
+//                         placeholder='Enter your email'
+//                         value={email}
+//                         onChange={(e) => setEmail(e.target.value)}
+//                     />
+//                 </FormControl>
+
+//                 <FormControl id='password' isRequired>
+//                     <FormLabel>Password</FormLabel>
+//                     <InputGroup>
+//                         <Input
+//                             type={showPassword ? 'text' : 'password'}
+//                             placeholder='Enter your password'
+//                             value={password}
+//                             onChange={(e) => setPassword(e.target.value)}
+//                         />
+//                         <InputRightElement width="3rem">
+//                             <Button
+//                                 h="1.5rem"
+//                                 size="sm"
+//                                 onClick={togglePasswordVisibility}
+//                                 variant="ghost"
+//                                 colorScheme="gray"
+//                             >
+//                                 {showPassword ? 'Hide' : 'Show'}
+//                             </Button>
+//                         </InputRightElement>
+//                     </InputGroup>
+//                 </FormControl>
+
+//                 <FormControl id='confirm-password' isRequired>
+//                     <FormLabel>Confirm Password</FormLabel>
+//                     <InputGroup>
+//                         <Input
+//                             type={showPassword ? 'text' : 'password'}
+//                             placeholder='Confirm your password'
+//                             value={confirmPassword}
+//                             onChange={(e) => setConfirmPassword(e.target.value)}
+//                         />
+//                         <InputRightElement width="3rem">
+//                             <Button
+//                                 h="1.5rem"
+//                                 size="sm"
+//                                 onClick={togglePasswordVisibility}
+//                                 variant="ghost"
+//                                 colorScheme="gray"
+//                             >
+//                                 {showPassword ? 'Hide' : 'Show'}
+//                             </Button>
+//                         </InputRightElement>
+//                     </InputGroup>
+//                 </FormControl>
+                 
+//                 {error && <Box color="red.500">{error}</Box>}
+
+//                 <Button
+//                     colorScheme="blue"
+//                     width="100%"
+//                     onClick={handleSubmit}
+//                 >
+//                     Sign Up
+//                 </Button>
+//             </VStack>
+//             <p style={{ textAlign: 'center', marginTop: '20px', fontSize: '18px' }}>Already have an account?  <Link to="/login" style={{ color: 'red', textDecoration: 'underline' }}>Login</Link></p>
+//         </Box>
+//     );
+// };
+
+
+// export default SignUp;
+
+//new claude
 import React, { useState } from 'react';
-import { Button, FormControl, FormLabel, Input, InputGroup, InputRightElement, VStack, Box, Heading } from '@chakra-ui/react';
+import { Button, FormControl, FormLabel, Input, InputGroup, InputRightElement, VStack, Box, Heading, Center, Icon } from '@chakra-ui/react';
+import { BsCamera } from 'react-icons/bs';
 import { Link, Redirect } from 'react-router-dom';
 import { useHistory } from 'react-router-dom';
-
 
 const SignUp = () => {
     const [showPassword, setShowPassword] = useState(false);
@@ -352,14 +530,14 @@ const SignUp = () => {
     const [password, setPassword] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');
     const [error, setError] = useState('');
-    const [successMessage, setSuccessMessage] = useState(''); 
+    const [successMessage, setSuccessMessage] = useState('');
+    const [profilePicture, setProfilePicture] = useState(null);
+    const [profilePicturePreview, setProfilePicturePreview] = useState(null);
 
-    
-    // Define setSuccessMessage
     const history = useHistory();
     const togglePasswordVisibility = () => setShowPassword(!showPassword);
 
-  const handleSubmit = async () => {
+    const handleSubmit = async () => {
         // Validate form fields before submitting
         if (!name || !email || !password || !confirmPassword) {
             setError('Please fill in all fields');
@@ -379,10 +557,10 @@ const SignUp = () => {
                     'Content-Type': 'application/json'
                 },
                 body: JSON.stringify({
-                    pic,
                     name,
                     email,
-                    password
+                    password,
+                    profilePicture // Include the profile picture data in the request body
                 })
             });
 
@@ -395,12 +573,7 @@ const SignUp = () => {
                 // Handle specific error cases
                 const data = await response.json();
                 setError(data.message);
-            } 
-            // else if(response.status===201){
-            //     const data = await response.json();
-            //     setError(data.message);
-            // }
-            else {
+            } else {
                 // Handle other errors
                 setError('Error signing up');
             }
@@ -408,15 +581,13 @@ const SignUp = () => {
             console.error('Error:', error.message);
             setError('Internal server error');
         }
-        return (
-        <div>
-            {successMessage && <div>{successMessage}</div>}
-            {error && <div>{error}</div>}
-            {/* Your sign-up form JSX */}
-        </div>
-         );
     };
-    
+
+    const handleProfilePictureUpload = (event) => {
+        const file = event.target.files[0];
+        setProfilePicture(file);
+        setProfilePicturePreview(URL.createObjectURL(file));
+    };
 
     return (
         <Box
@@ -431,7 +602,40 @@ const SignUp = () => {
         >
             <VStack spacing="6">
                 <Heading as="h2" size="lg" textAlign="center">Sign Up</Heading>
-
+         <Center mt="4">
+    <label htmlFor="profile-picture-upload">
+        {profilePicturePreview ? (
+            <Box
+                borderRadius="full"
+                overflow="hidden"
+                boxSize="14"
+                border="2px solid gray.200"
+            >
+                <img
+                    src={profilePicturePreview}
+                    alt="Profile Preview"
+                    style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                />
+            </Box>
+        ) : (
+            <Icon
+                as={BsCamera}
+                boxSize="14"
+                cursor="pointer"
+                p="4"
+                borderRadius="full"
+                bg="gray.200"
+            />
+        )}
+    </label>
+    <input
+        id="profile-picture-upload"
+        type="file"
+        accept="image/*"
+        onChange={handleProfilePictureUpload}
+        style={{ display: 'none' }}
+    />
+</Center>
                 <FormControl id='name' isRequired>
                     <FormLabel>Name</FormLabel>
                     <Input
@@ -497,7 +701,7 @@ const SignUp = () => {
                         </InputRightElement>
                     </InputGroup>
                 </FormControl>
-                 
+
                 {error && <Box color="red.500">{error}</Box>}
 
                 <Button
@@ -508,17 +712,13 @@ const SignUp = () => {
                     Sign Up
                 </Button>
             </VStack>
+           
             <p style={{ textAlign: 'center', marginTop: '20px', fontSize: '18px' }}>Already have an account?  <Link to="/login" style={{ color: 'red', textDecoration: 'underline' }}>Login</Link></p>
         </Box>
     );
 };
 
-
 export default SignUp;
-
-
-
-
 
 
 

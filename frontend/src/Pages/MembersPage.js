@@ -376,52 +376,69 @@ const MembersPage = () => {
 
   const members = [
     {
-      name: 'John Doe',
-      role: 'President',
+      name: 'NAME',
+      role: 'DESIGNATION',
       avatar: 'https://via.placeholder.com/150',
       linkedin: 'https://www.linkedin.com/in/johndoe',
       twitter: 'https://twitter.com/johndoe',
       github: 'https://github.com/johndoe',
     },
-    {
-      name: 'Jane Smith',
-      role: 'Vice President',
+   {
+      name: 'NAME',
+      role: 'DESIGNATION',
       avatar: 'https://via.placeholder.com/150',
-      linkedin: 'https://www.linkedin.com/in/janesmith',
-      twitter: 'https://twitter.com/janesmith',
-      github: 'https://github.com/janesmith',
-    },
-    {
-      name: 'Bob Johnson',
-      role: 'Secretary',
+      linkedin: 'https://www.linkedin.com/in/johndoe',
+      twitter: 'https://twitter.com/johndoe',
+      github: 'https://github.com/johndoe',
+    },{
+      name: 'NAME',
+      role: 'DESIGNATION',
       avatar: 'https://via.placeholder.com/150',
-      linkedin: 'https://www.linkedin.com/in/bobjohnson',
-      twitter: 'https://twitter.com/bobjohnson',
-      github: 'https://github.com/bobjohnson',
-    },
-    {
-      name: 'Bob Johnson',
-      role: 'Secretary',
+      linkedin: 'https://www.linkedin.com/in/johndoe',
+      twitter: 'https://twitter.com/johndoe',
+      github: 'https://github.com/johndoe',
+    },{
+      name: 'NAME',
+      role: 'DESIGNATION',
       avatar: 'https://via.placeholder.com/150',
-      linkedin: 'https://www.linkedin.com/in/bobjohnson',
-      twitter: 'https://twitter.com/bobjohnson',
-      github: 'https://github.com/bobjohnson',
-    },
-    {
-      name: 'Bob Johnson',
-      role: 'Secretary',
+      linkedin: 'https://www.linkedin.com/in/johndoe',
+      twitter: 'https://twitter.com/johndoe',
+      github: 'https://github.com/johndoe',
+    },{
+      name: 'NAME',
+      role: 'DESIGNATION',
       avatar: 'https://via.placeholder.com/150',
-      linkedin: 'https://www.linkedin.com/in/bobjohnson',
-      twitter: 'https://twitter.com/bobjohnson',
-      github: 'https://github.com/bobjohnson',
-    },
-    {
-      name: 'Bob Johnson',
-      role: 'Secretary',
+      linkedin: 'https://www.linkedin.com/in/johndoe',
+      twitter: 'https://twitter.com/johndoe',
+      github: 'https://github.com/johndoe',
+    },{
+      name: 'NAME',
+      role: 'DESIGNATION',
       avatar: 'https://via.placeholder.com/150',
-      linkedin: 'https://www.linkedin.com/in/bobjohnson',
-      twitter: 'https://twitter.com/bobjohnson',
-      github: 'https://github.com/bobjohnson',
+      linkedin: 'https://www.linkedin.com/in/johndoe',
+      twitter: 'https://twitter.com/johndoe',
+      github: 'https://github.com/johndoe',
+    },{
+      name: 'NAME',
+      role: 'DESIGNATION',
+      avatar: 'https://via.placeholder.com/150',
+      linkedin: 'https://www.linkedin.com/in/johndoe',
+      twitter: 'https://twitter.com/johndoe',
+      github: 'https://github.com/johndoe',
+    },{
+      name: 'NAME',
+      role: 'DESIGNATION',
+      avatar: 'https://via.placeholder.com/150',
+      linkedin: 'https://www.linkedin.com/in/johndoe',
+      twitter: 'https://twitter.com/johndoe',
+      github: 'https://github.com/johndoe',
+    },{
+      name: 'NAME',
+      role: 'DESIGNATION',
+      avatar: 'https://via.placeholder.com/150',
+      linkedin: 'https://www.linkedin.com/in/johndoe',
+      twitter: 'https://twitter.com/johndoe',
+      github: 'https://github.com/johndoe',
     },
     // Add more members as needed
   ];
@@ -511,6 +528,7 @@ const MembersPage = () => {
           onClick={handleDrawerToggle}
           mb={2}
         />
+        
         <Drawer placement="left" onClose={handleDrawerToggle} isOpen={isDrawerOpen}>
           <DrawerOverlay>
             <DrawerContent>
@@ -547,3 +565,5 @@ const MembersPage = () => {
 };
 
 export default MembersPage;
+
+

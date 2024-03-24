@@ -276,7 +276,7 @@
 import React, { useState } from 'react';
 import { Link, Redirect } from 'react-router-dom';
 import axios from 'axios';
-import { Box, Button, FormControl, FormLabel, Input, VStack, InputGroup, InputRightElement } from '@chakra-ui/react';
+import { Box, Button, FormControl, FormLabel, Input, VStack, InputGroup, InputRightElement , Modal, ModalOverlay, ModalContent, ModalHeader, ModalBody, ModalFooter} from '@chakra-ui/react';
 
 const Login = () => {
   const [email, setEmail] = useState('');
@@ -303,7 +303,7 @@ const Login = () => {
   return <Redirect to={`/UserPage/${email}`} />;
 }
 
-
+  
   return (
     <Box
       w="100%"
@@ -351,9 +351,12 @@ const Login = () => {
           Login
         </Button>
         <p style={{ textAlign: 'center', marginTop: '20px', fontSize: '18px' }}>Don't have an account? <Link to="/signup" style={{ color: 'red', textDecoration: 'underline' }}>Sign up</Link></p>
+          
         <p style={{ textAlign: 'center', marginTop: '20px', fontSize: '18px' }}>Back to <Link to="/" style={{ color: 'red', textDecoration: 'underline' }}>home</Link></p>
         {error && <Box color="red.500">{error}</Box>}
       </VStack>
+          
+
     </Box>
   );
 };

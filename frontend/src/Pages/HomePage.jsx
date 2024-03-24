@@ -13,11 +13,13 @@ import {
 import { Link } from 'react-router-dom';
 import { FaChessBoard, FaNewspaper,FaUsers, FaComments, FaTrophy, FaInfoCircle,FaSignInAlt, FaUserPlus  } from 'react-icons/fa';
 
-
-import Login from '../components/Authentication/Login';
+import GallerySlider from '../components/gallery';
+import EventTextSlider from '../components/EventTextSlider';
+//import TextSlider from '../components/Text';
+//import Login from '../components/Authentication/Login';
 //import Signup from '../components/Authentication/SignUp';
 import top1Image from './top1.png';
-import top2Image from './lefttop.png';
+//import top2Image from './lefttop.png';
 import top3Image from './topfull.png';
 // maxW='xl'
 const HomePage = () => {
@@ -90,6 +92,7 @@ const HomePage = () => {
     <Tab _hover={{ bg: 'blue.500' }} bg="#DFF5FF" width="50%" fontWeight="bold" fontSize="lg" style={{ color: 'black' }}><Icon as={FaTrophy} boxSize={6} mr={2} /><Link to="/achievements">Achievements</Link></Tab>
     <Tab _hover={{ bg: 'blue.500' }} bg="#DFF5FF" width="50%" fontWeight="bold" fontSize="lg" style={{ color: 'black' }}><Icon as={FaNewspaper} boxSize={6} mr={2} /><Link to="/news">News</Link></Tab>
     <Tab _hover={{ bg: 'blue.500' }} bg="#DFF5FF" width="50%" fontWeight="bold" fontSize="lg" style={{ color: 'black' }}><Icon as={FaInfoCircle} boxSize={6} mr={2} /><Link to="/about">About Us</Link></Tab>
+    <Tab _hover={{ bg: 'blue.500' }} bg="#DFF5FF" width="50%" fontWeight="bold" fontSize="lg" style={{ color: 'black' }}><Icon as={FaInfoCircle} boxSize={6} mr={2} /><Link to="/Signupc">ChatUp</Link></Tab>
   </TabList>
   <TabPanels>
     <TabPanel>
@@ -102,8 +105,8 @@ const HomePage = () => {
 </Tabs>
           {/* <Text fontSize="2xl" fontFamily="Work sans" color="red"></Text> */}
       </Box>  
-      <Box className="container" display="flex" justifyContent="space-around">
-      <Box className="section" width="30%" bgGradient="linear(to-r,rgba(32, 22, 68, 0.7), pink.200,pink.300 )" >
+      <Box className="container" display="flex" justifyContent="space-around" >
+      <Box className="section" width="30%" bgGradient="linear(to-r,rgba(32, 22, 68, 0.7), pink.200,pink.300 )" h="440px" borderRadius='50px'overflow='hidden' >
         <Text as="h2" bg="white" fontSize="xl" fontWeight="bold" mb={4} >
           ANNOUNCEMENTS
         </Text>
@@ -114,16 +117,18 @@ const HomePage = () => {
           <ListItem>Announcement 3</ListItem>
         </UnorderedList>
       </Box>
-      <Box className="section" width="30%" bgGradient="linear(to-r, pink.200,pink.300,pink.200)" h="440px">
+      <Box className="section" width="30%" bgGradient="linear(to-r, pink.200,pink.300,pink.200)" h="440px" borderRadius='50px'overflow='hidden'> 
         <Text as="h2" bg="white" fontSize="xl" fontWeight="bold" mb={4}>
-          EVENT
+          EVENTS
         </Text>
-        <UnorderedList className="event-list">
+        {/* <UnorderedList className="event-list"> */}
           {/* Event items will be added dynamically here */}
-          <ListItem>Event 1</ListItem>
+          {/* <ListItem>Event 1</ListItem>
           <ListItem>Event 2</ListItem>
           <ListItem>Event 3</ListItem>
-        </UnorderedList>
+        </UnorderedList> */}
+        <EventTextSlider />
+ 
       </Box>
 
       {/* <Box className="section" width="30%" bgGradient="linear(to-r, pink.200, rgba(32, 22, 68, 0.7))" h="440px" borderRadius="10px" >
@@ -147,7 +152,7 @@ const HomePage = () => {
   width="30%"
   bgGradient="linear(to-r, pink.200, rgba(32, 22, 68, 0.7))"
   h="440px"
-  borderRadius="10px"
+  borderRadius="50px"
   overflow="hidden"
   animation={{
     keyframes: {
@@ -161,24 +166,28 @@ const HomePage = () => {
   <Text as="h2" bg="white" fontSize="xl" fontWeight="bold" mb={4} textAlign="center">
     GALLERY
   </Text>
-  <Flex
+  {/* <Flex
     className="gallery"
     direction="column"
     alignItems="center"
     mx={0}
     h="calc(100% - 40px)"
-    overflowY="auto"
-  >
+    overflowY="auto" */}
+  {/* > */}
     {/* Gallery images */}
-    <Image src={top1Image} alt="Image 1" mb={2} objectFit="cover" borderRadius="10px" />
+    {/* <Image src={top1Image} alt="Image 1" mb={2} objectFit="cover" borderRadius="10px" />
     <Image src={top1Image} alt="Image 2" mb={2} objectFit="cover" borderRadius="10px" />
-    <Image src={top1Image} alt="Image 3" mb={2} objectFit="cover" borderRadius="10px" />
+    <Image src={top1Image} alt="Image 3" mb={2} objectFit="cover" borderRadius="10px" /> */}
     {/* Add more images here */}
-  </Flex>
+  {/* </Flex> */}
+       <GallerySlider />
    </Box>
 
     </Box>
-
+     {/* <Text as="h2" bg="white" fontSize="xl" fontWeight="bold" mb={4} textAlign="center">
+    GALLERY
+  </Text>
+     <GallerySlider /> */}
     </Container>
 
 

@@ -397,49 +397,50 @@ const MembersPage = () => {
       linkedin: 'https://www.linkedin.com/in/johndoe',
       twitter: 'https://twitter.com/johndoe',
       github: 'https://github.com/johndoe',
-    },{
-      name: 'NAME',
-      role: 'DESIGNATION',
-      avatar: 'https://via.placeholder.com/150',
-      linkedin: 'https://www.linkedin.com/in/johndoe',
-      twitter: 'https://twitter.com/johndoe',
-      github: 'https://github.com/johndoe',
-    },{
-      name: 'NAME',
-      role: 'DESIGNATION',
-      avatar: 'https://via.placeholder.com/150',
-      linkedin: 'https://www.linkedin.com/in/johndoe',
-      twitter: 'https://twitter.com/johndoe',
-      github: 'https://github.com/johndoe',
-    },{
-      name: 'NAME',
-      role: 'DESIGNATION',
-      avatar: 'https://via.placeholder.com/150',
-      linkedin: 'https://www.linkedin.com/in/johndoe',
-      twitter: 'https://twitter.com/johndoe',
-      github: 'https://github.com/johndoe',
-    },{
-      name: 'NAME',
-      role: 'DESIGNATION',
-      avatar: 'https://via.placeholder.com/150',
-      linkedin: 'https://www.linkedin.com/in/johndoe',
-      twitter: 'https://twitter.com/johndoe',
-      github: 'https://github.com/johndoe',
-    },{
-      name: 'NAME',
-      role: 'DESIGNATION',
-      avatar: 'https://via.placeholder.com/150',
-      linkedin: 'https://www.linkedin.com/in/johndoe',
-      twitter: 'https://twitter.com/johndoe',
-      github: 'https://github.com/johndoe',
-    },{
-      name: 'NAME',
-      role: 'DESIGNATION',
-      avatar: 'https://via.placeholder.com/150',
-      linkedin: 'https://www.linkedin.com/in/johndoe',
-      twitter: 'https://twitter.com/johndoe',
-      github: 'https://github.com/johndoe',
-    },
+     },
+    //{
+    //   name: 'NAME',
+    //   role: 'DESIGNATION',
+    //   avatar: 'https://via.placeholder.com/150',
+    //   linkedin: 'https://www.linkedin.com/in/johndoe',
+    //   twitter: 'https://twitter.com/johndoe',
+    //   github: 'https://github.com/johndoe',
+    // },{
+    //   name: 'NAME',
+    //   role: 'DESIGNATION',
+    //   avatar: 'https://via.placeholder.com/150',
+    //   linkedin: 'https://www.linkedin.com/in/johndoe',
+    //   twitter: 'https://twitter.com/johndoe',
+    //   github: 'https://github.com/johndoe',
+    // },{
+    //   name: 'NAME',
+    //   role: 'DESIGNATION',
+    //   avatar: 'https://via.placeholder.com/150',
+    //   linkedin: 'https://www.linkedin.com/in/johndoe',
+    //   twitter: 'https://twitter.com/johndoe',
+    //   github: 'https://github.com/johndoe',
+    // },{
+    //   name: 'NAME',
+    //   role: 'DESIGNATION',
+    //   avatar: 'https://via.placeholder.com/150',
+    //   linkedin: 'https://www.linkedin.com/in/johndoe',
+    //   twitter: 'https://twitter.com/johndoe',
+    //   github: 'https://github.com/johndoe',
+    // },{
+    //   name: 'NAME',
+    //   role: 'DESIGNATION',
+    //   avatar: 'https://via.placeholder.com/150',
+    //   linkedin: 'https://www.linkedin.com/in/johndoe',
+    //   twitter: 'https://twitter.com/johndoe',
+    //   github: 'https://github.com/johndoe',
+    // },{
+    //   name: 'NAME',
+    //   role: 'DESIGNATION',
+    //   avatar: 'https://via.placeholder.com/150',
+    //   linkedin: 'https://www.linkedin.com/in/johndoe',
+    //   twitter: 'https://twitter.com/johndoe',
+    //   github: 'https://github.com/johndoe',
+    // },
     // Add more members as needed
   ];
 
@@ -450,7 +451,7 @@ const MembersPage = () => {
 
   return (
     <Flex direction="column" h="100vh">
-      <Box bg={colorMode === 'light' ? 'gray.100' : 'gray.700'} py={10} mt={4}>
+      <Box bg={colorMode === 'light' ? 'gray.100' : 'gray.700'} py={10} mt={4} >
         <Box maxW="container.lg" mx="auto" px={6}>
           <Heading mb={6} textAlign="center">
             Our Team
@@ -511,7 +512,71 @@ const MembersPage = () => {
             ))}
           </Grid>
         </Box>
-      </Box>
+        {/* new box */}
+       </Box>
+       <Box bg={colorMode === 'light' ? 'gray.100' : 'gray.700'} py={10} mt={6} mr={0}>
+        <Box maxW="container.lg" mx="auto" px={6}>
+          <Heading mb={6} textAlign="center">
+            Our Team
+          </Heading>
+          <Grid templateColumns="repeat(3, 1fr)" gap={6}>
+            {members.map((member, index) => (
+              <Flex
+                key={index}
+                bg={cardBg}
+                boxShadow="md"
+                rounded="lg"
+                p={4}
+                alignItems="center"
+                justifyContent="space-between"
+                flexDirection="column" // Align items vertically
+              >
+                <Flex alignItems="center" mb={2}>
+                  <Avatar src={member.avatar} size="md" mr={2} />
+                  <Box>
+                    <Heading size="sm">{member.name}</Heading>
+                    <Text color={textColor} fontSize="sm">
+                      {member.role}
+                    </Text>
+                  </Box>
+                </Flex>
+                <Flex>
+                  <IconButton
+                    as="a"
+                    href={member.linkedin}
+                    target="_blank"
+                    aria-label="LinkedIn"
+                    icon={<FaLinkedin />}
+                    variant="ghost"
+                    colorScheme="linkedin"
+                    mr={2}
+                  />
+                  <IconButton
+                    as="a"
+                    href={member.twitter}
+                    target="_blank"
+                    aria-label="Twitter"
+                    icon={<FaTwitter />}
+                    variant="ghost"
+                    colorScheme="twitter"
+                    mr={2}
+                  />
+                  <IconButton
+                    as="a"
+                    href={member.github}
+                    target="_blank"
+                    aria-label="GitHub"
+                    icon={<FaGithub />}
+                    variant="ghost"
+                    colorScheme="gray"
+                  />
+                </Flex>
+              </Flex>
+            ))}
+          </Grid>
+        </Box>
+        
+       </Box>
       <Box
         bg={colorMode === 'light' ? 'gray.200' : 'gray.800'}
         p={4}
@@ -561,6 +626,7 @@ const MembersPage = () => {
         </Drawer>
       </Box>
     </Flex>
+    
   );
 };
 

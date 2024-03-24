@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text Slider</title>
+    <style>
+        .slider-container {
+            width: 300px;
+            /* Adjust as needed */
+            overflow: hidden;
+        }
+
+        .slider {
+            white-space: nowrap;
+            animation: scroll 10s linear infinite;
+            /* Adjust the duration (10s) as needed */
+        }
+
+        .slider-item {
+            display: inline-block;
+            margin-right: 20px;
+            /* Adjust the gap between texts */
+        }
+
+        @keyframes scroll {
+            0% {
+                transform: translateX(0);
+            }
+
+            100% {
+                transform: translateX(-100%);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="slider-container">
+        <div class="slider">
+            <div class="slider-item">Text 1</div>
+            <div class="slider-item">Text 2</div>
+            <div class="slider-item">Text 3</div>
+            <!-- Add more slider items as needed -->
+        </div>
+    </div>
+</body>
+
+</html>

@@ -517,6 +517,7 @@
 // export default SignUp;
 
 //new claude
+
 import React, { useState } from 'react';
 import { Button, FormControl, FormLabel, Input, InputGroup, InputRightElement, VStack, Box, Heading, Center, Icon } from '@chakra-ui/react';
 import { BsCamera } from 'react-icons/bs';
@@ -531,12 +532,15 @@ const SignUp = () => {
     const [confirmPassword, setConfirmPassword] = useState('');
     const [error, setError] = useState('');
     const [successMessage, setSuccessMessage] = useState('');
-    const [profilePicture, setProfilePicture] = useState(null);
-    const [profilePicturePreview, setProfilePicturePreview] = useState(null);
+    const [pic, setProfilePicture] = useState(null);
+    const [picPreview, setProfilePicturePreview] = useState(null);
 
     const history = useHistory();
     const togglePasswordVisibility = () => setShowPassword(!showPassword);
-
+    const isValidEmail = (email) => {
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return emailRegex.test(email);
+    };
     const handleSubmit = async () => {
         // Validate form fields before submitting
         if (!name || !email || !password || !confirmPassword) {
@@ -546,6 +550,10 @@ const SignUp = () => {
 
         if (password !== confirmPassword) {
             setError('Passwords do not match');
+            return;
+        }
+         if (!isValidEmail(email)) {
+            setError('Invalid email address');
             return;
         }
 
@@ -560,7 +568,7 @@ const SignUp = () => {
                     name,
                     email,
                     password,
-                    profilePicture // Include the profile picture data in the request body
+                    pic // Include the profile picture data in the request body
                 })
             });
 
@@ -583,6 +591,20 @@ const SignUp = () => {
         }
     };
 
+const handleFileChange = async (e) => {
+    const file = e.target.files[0];
+    const reader = new FileReader();
+
+    reader.onloadend = () => {
+      const base64String = reader.result.split(',')[1]; // Extracting base64 string from data URL
+      setProfilePicture(base64String); // Set the Base64 encoded image string to the state
+    };
+
+    if (file) {
+      reader.readAsDataURL(file); // Read the image file as data URL
+    }
+  };
+
     const handleProfilePictureUpload = (event) => {
         const file = event.target.files[0];
         setProfilePicture(file);
@@ -604,7 +626,7 @@ const SignUp = () => {
                 <Heading as="h2" size="lg" textAlign="center">Sign Up</Heading>
          <Center mt="4">
     <label htmlFor="profile-picture-upload">
-        {profilePicturePreview ? (
+        {picPreview ? (
             <Box
                 borderRadius="full"
                 overflow="hidden"
@@ -612,7 +634,7 @@ const SignUp = () => {
                 border="2px solid gray.200"
             >
                 <img
-                    src={profilePicturePreview}
+                    src={picPreview}
                     alt="Profile Preview"
                     style={{ width: '100%', height: '100%', objectFit: 'cover' }}
                 />
@@ -632,7 +654,8 @@ const SignUp = () => {
         id="profile-picture-upload"
         type="file"
         accept="image/*"
-        onChange={handleProfilePictureUpload}
+        // onChange={handleProfilePictureUpload}
+        onChange={handleFileChange}
         style={{ display: 'none' }}
     />
 </Center>

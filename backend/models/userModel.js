@@ -1,31 +1,40 @@
-// const mongoose = require('mongoose');
-// const bcrypt = require('bcryptjs');
+const mongoose = require("mongoose");
+const bcrypt = require("bcryptjs");
 
-// const userSchema =  mongoose.Schema({
-//     name: { type: String, required: true },
-//     email:{type:String,required:true,unique:true},
-//     password:{type:String,required:true},
-//     pic:{type:String,default:"https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.pinterest.com%2Fpin%2F67413325654311945%2F&psig=AOvVaw3tJd4f4n2XU8w8LZ9k7tZG&ust=1626831302953000&source=images&cd=vfe&ved=0CAoQjRxqFwoTCJjE3bKZqfECFQAAAAAdAAAAABAD"},
-//     isAdmin:{type:Boolean,default:false},
-// },{
-//     timestamps:true,
-// });
+const personSchema = mongoose.Schema(
+  {
+    name: { type: "String", required: true },
+    email: { type: "String", unique: true, required: true },
+    password: { type: "String", required: true },
+    pic: {
+      type: "String",
+      required: true,
+      default:
+        "https://icon-library.com/images/anonymous-avatar-icon/anonymous-avatar-icon-25.jpg",
+    },
 
-// userSchema.methods.matchPassword=async function(enteredPassword){
-//    return await bcrypt.compare(enteredPassword,this.password);
-// }
+    isAdmin: {
+      type: Boolean,
+      required: true,
+      default: false,
+    },
+  },
+  { timestamps: true }
+);
 
+personSchema.methods.matchPassword = async function (enteredPassword) {
+  return await bcrypt.compare(enteredPassword, this.password);
+};
 
+personSchema.pre("save", async function (next) {
+  if (!this.isModified) {
+    next();
+  }
 
+  const salt = await bcrypt.genSalt(10);
+  this.password = await bcrypt.hash(this.password, salt);
+});
 
-// userSchema.pre('save',async function(next){
-//     if(!this.isModified('password')){
-//         next();
-//     }
-//     const salt = await bcrypt.genSalt(10);
-//     this.password = await bcrypt.hash(this.password,salt);
-// });
+const person = mongoose.model("person", personSchema);
 
-// const User = mongoose.model("User",userSchema);
-
-// module.exports = User;
+module.exports = person;

@@ -91,101 +91,70 @@
 
 // export default AboutPage;
 
-
-
 import React from 'react';
-import styled from 'styled-components';
-
-const Container = styled.div`
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 2rem;
-`;
-
-const Header = styled.header`
-  background-color: #333;
-  color: #fff;
-  padding: 1rem;
-  text-align: center;
-`;
-
-const Section = styled.section`
-  background-color: #fff;
-  padding: 2rem;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  border-radius: 5px;
-  margin-bottom: 2rem;
-`;
-
-const Title = styled.h1`
-  font-size: 2.5rem;
-  margin-bottom: 1rem;
-`;
-
-const SubTitle = styled.h2`
-  font-size: 2rem;
-  margin-bottom: 1rem;
-  color: #333;
-`;
-
-const Paragraph = styled.p`
-  margin-bottom: 1rem;
-  color: #555;
-`;
-
-const Footer = styled.footer`
-  background-color: #333;
-  color: #fff;
-  text-align: center;
-  padding: 1rem;
-`;
+import {
+  Box,
+  Container,
+  Flex,
+  Heading,
+  Text,
+  UnorderedList,
+  ListItem,
+  Icon,
+} from '@chakra-ui/react';
+import { FaChessKnight } from 'react-icons/fa';
 
 const AboutPage = () => {
   return (
-     <>
-      <Header>
-        <Title>Chess Community</Title>
-      </Header>
+    <Box bg="gray.100" py={16} marginTop={100} marginBottom={100}>
+      <Container maxW="6xl">
+        <Flex direction={{ base: 'column', md: 'row' }} align="center" justify="space-between" >
+          <Box mr={{ md: 8 }}>
+            <Heading as="h1" size="4xl" mb={6}>
+              About Us
+            </Heading>
+            <Text fontSize="lg" mb={4}>
+              Welcome to our vibrant chess community! We are a passionate group of chess enthusiasts dedicated to fostering a love for the game and providing a platform for players of all levels to connect, learn, and grow.
+            </Text>
+            <Text fontSize="lg" mb={8}>
+              Founded in 2020, our community was born out of a shared desire to create a space where chess lovers could come together, exchange ideas, and challenge each other in friendly matches. Since then, we have grown into a thriving community with members from all over the world.
+            </Text>
+            <Heading as="h2" size="xl" mb={4}>
+              Our Mission
+            </Heading>
+            <Text fontSize="lg" mb={8}>
+              Our mission is to promote the art of chess, celebrate its rich history, and inspire a new generation of players. Whether you're a seasoned grandmaster or a beginner just starting your journey, our community is here to support you every step of the way.
+            </Text>
+          </Box>
+          <Box>
+            <Icon as={FaChessKnight} boxSize={20} color="gray.600" mb={8} />
+            <Heading as="h2" size="xl" mb={4}>
+              Our Values
+            </Heading>
+            <UnorderedList spacing={4} fontSize="lg">
+              <ListItem>
+                <strong>Inclusivity:</strong> We welcome chess players of all ages, backgrounds, and skill levels, fostering an environment of mutual respect and camaraderie.
+              </ListItem>
+              <ListItem>
+                <strong>Learning:</strong> We believe in continual growth and encourage members to share their knowledge, strategies, and insights to help each other improve.
+              </ListItem>
+              <ListItem>
+                <strong>Sportsmanship:</strong> We promote fair play, ethical conduct, and a love for the game above all else.
+              </ListItem>
+              <ListItem>
+                <strong>Community:</strong> We strive to create a supportive and engaging environment where members can connect, collaborate, and form lasting friendships.
+              </ListItem>
+            </UnorderedList>
+          </Box>
 
-      <Container>
-        <Section>
-          <SubTitle>About Us</SubTitle>
-          <Paragraph>
-            Welcome to our vibrant chess community! We are a passionate group of chess enthusiasts dedicated to fostering a love for the game and providing a platform for players of all levels to connect, learn, and grow.
-          </Paragraph>
-          <Paragraph>
-            Founded in 2020, our community was born out of a shared desire to create a space where chess lovers could come together, exchange ideas, and challenge each other in friendly matches. Since then, we have grown into a thriving community with members from all over the world.
-          </Paragraph>
-          <Paragraph>
-            Our mission is to promote the art of chess, celebrate its rich history, and inspire a new generation of players. Whether you're a seasoned grandmaster or a beginner just starting your journey, our community is here to support you every step of the way.
-          </Paragraph>
-        </Section>
-
-        <Section>
-          <SubTitle>Our Values</SubTitle>
-          <Paragraph>At the heart of our community lie the following core values:</Paragraph>
-          <ul>
-            <li>
-              <strong>Inclusivity:</strong> We welcome chess players of all ages, backgrounds, and skill levels, fostering an environment of mutual respect and camaraderie.
-            </li>
-            <li>
-              <strong>Learning:</strong> We believe in continual growth and encourage members to share their knowledge, strategies, and insights to help each other improve.
-            </li>
-            <li>
-              <strong>Sportsmanship:</strong> We promote fair play, ethical conduct, and a love for the game above all else.
-            </li>
-            <li>
-              <strong>Community:</strong> We strive to create a supportive and engaging environment where members can connect, collaborate, and form lasting friendships.
-            </li>
-          </ul>
-        </Section>
+          
+        </Flex>
       </Container>
-
-      <Footer>
-        <Paragraph>&copy; 2024 Chess Community. All rights reserved.</Paragraph>
-      </Footer>
-    </>
+    </Box>
+    
   );
 };
 
 export default AboutPage;
+
+

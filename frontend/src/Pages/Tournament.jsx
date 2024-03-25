@@ -23,7 +23,7 @@
 // import top2Image from './lefttop.png';
 // import top3Image from './topfull.png';
 
-// const Achievements = () => {
+// const AboutPage = () => {
 //   // Define state variables for drawer
 //   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
 
@@ -79,7 +79,7 @@
 //           </DrawerOverlay>
 //         </Drawer>
 //         <Text fontSize="xl" color="red">
-//           UNDER MAINTENANCE(Achievements)
+//           UNDER MAINTENANCE(Tournaments)
 //         </Text>
 //         <Text fontSize="lg" color="red">
 //           Sorry for the inconvenience.
@@ -89,45 +89,112 @@
 //   );
 // };
 
-// export default Achievements;
+// export default AboutPage;
 
-import React from 'react';
+
+
+
+import React, { useState } from 'react';
 import {
   Box,
   Container,
   Flex,
   Heading,
   Text,
-  UnorderedList,
-  ListItem,
+  Button,
+  Input,
+  InputGroup,
+  InputRightElement,
+  Textarea,
 } from '@chakra-ui/react';
+import { FaPaperPlane } from 'react-icons/fa';
+import {Chessboard} from 'react-chessboard';
+import {Chess}from 'chess.js'; // Import Chess from 'chess.js'
+//import Chessboard from '../components/Chessboard';
 
-const AchievementsPage = () => {
+const TournamentPage = () => {
+//   const [game, setGame] = useState(new Chess());
+//   const [fen, setFen] = useState('start');
+//   const [message, setMessage] = useState('');
+//   const [chatMessages, setChatMessages] = useState([]);
+
+  const [game, setGame] = useState(new Chess('rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1')); // Initialize with a valid FEN string
+  const [fen, setFen] = useState('rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1'); // Update the initial FEN state
+  const [message, setMessage] = useState('');
+  const [chatMessages, setChatMessages] = useState([]);
+
+  const handleMove = (move) => {
+    const gameCopy = new Chess(fen); // Create a new instance of Chess
+    const result = gameCopy.move(move);
+    if (result) {
+      setGame(gameCopy);
+      setFen(gameCopy.fen());
+    }
+  };
+
+  const handleMessageSubmit = () => {
+    if (message.trim() !== '') {
+      setChatMessages([...chatMessages, message.trim()]);
+      setMessage('');
+    }
+  };
+
   return (
-    <Box bg="gray.100" py={16} mt={10}>
+    <Box bg="gray.100" py={16}>
       <Container maxW="6xl">
         <Flex direction={{ base: 'column', md: 'row' }} align="center" justify="space-between">
-          <Box mr={{ md: 8 }}>
+          {/* <Box mr={{ md: 8 }} flex="1">
             <Heading as="h1" size="4xl" mb={6}>
-              Our Achievements
+              Online Tournament
             </Heading>
-            <Text fontSize="lg" mb={8}>
-              Our community has achieved remarkable milestones and successes over the years. We are proud to share some of our most notable achievements:
-            </Text>
-            <UnorderedList spacing={4} fontSize="lg">
-              <ListItem>
-                <strong>Tournament Victories:</strong> Our members have won numerous regional and national chess tournaments, showcasing their exceptional skills and dedication.
-              </ListItem>
-              <ListItem>
-                <strong>Community Outreach:</strong> We have organized and participated in various community events, promoting chess and introducing the game to new audiences.
-              </ListItem>
-              <ListItem>
-                <strong>Online Presence:</strong> Our online community has grown significantly, with thousands of active members engaging in discussions, sharing insights, and participating in virtual tournaments.
-              </ListItem>
-              <ListItem>
-                <strong>Youth Development:</strong> Our youth programs have nurtured and supported young chess talents, helping them develop their skills and fostering a love for the game.
-              </ListItem>
-            </UnorderedList>
+            <Chessboard
+              position={fen}
+              onDrop={handleMove}
+              boardWidth={400}
+              boardStyle={{
+                borderRadius: '5px',
+                boxShadow: '0 5px 15px rgba(0, 0, 0, 0.5)',
+              }}
+            />
+          </Box> */}
+  <div>
+      <h1>My Chessboard</h1>
+      <Chessboard
+        position="start"
+        width={400}
+        draggable={true}
+        onDrop={(sourceSquare, targetSquare) =>
+          console.log(`Piece dropped from ${sourceSquare} to ${targetSquare}`)
+        }
+      />
+    </div>
+
+          <Box flex="1">
+            <Heading as="h2" size="2xl" mb={4}>
+              Chat
+            </Heading>
+            <Box bg="white" p={4} borderRadius="md" boxShadow="md" mb={4}>
+              {chatMessages.map((msg, index) => (
+                <Text key={index} mb={2}>
+                  {msg}
+                </Text>
+              ))}
+            </Box>
+            <InputGroup>
+              <Textarea
+                placeholder="Type your message..."
+                value={message}
+                onChange={(e) => setMessage(e.target.value)}
+                resize="none"
+                rows={3}
+                mr={2}
+              />
+              <InputRightElement>
+                <Button colorScheme="blue" onClick={handleMessageSubmit}>
+                  <FaPaperPlane />
+                </Button>
+              </InputRightElement>
+            </InputGroup>
           </Box>
         </Flex>
       </Container>
@@ -135,4 +202,7 @@ const AchievementsPage = () => {
   );
 };
 
-export default AchievementsPage;
+export default TournamentPage;
+
+
+

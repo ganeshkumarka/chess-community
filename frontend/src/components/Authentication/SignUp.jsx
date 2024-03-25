@@ -594,10 +594,12 @@ const SignUp = () => {
 const handleFileChange = async (e) => {
     const file = e.target.files[0];
     const reader = new FileReader();
-
+   
     reader.onloadend = () => {
+      setProfilePicturePreview(file);
       const base64String = reader.result.split(',')[1]; // Extracting base64 string from data URL
       setProfilePicture(base64String); // Set the Base64 encoded image string to the state
+     
     };
 
     if (file) {

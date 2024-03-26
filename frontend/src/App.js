@@ -13,6 +13,7 @@ import UserPage from './Pages/UserPage';
 import DiscussionForum from './Pages/DiscussionForum';
 import Signupc from './components/Authentication/Signupc';
 import Loginc from './components/Authentication/Loginc';
+import TournamentPage from './Pages/Tournament';
 
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import ChatPage from './Pages/Chatpage';
@@ -34,7 +35,7 @@ function App() {
       <Route path="/about" component={AboutPage} />
       <Route path="/achievements" component={Achievements} />
       <Route path="/news" component={NewsPage} />
-      <Route path="/tournament" component={Tournament} />
+      <Route path="/tournament" component={TournamentPage} />
       <Route path="/userpage/:email" component={UserPage} />
       <Route path="/:email/forum" component = {DiscussionForum}/>
       <Route path="/Signupc" component={Signupc}/>

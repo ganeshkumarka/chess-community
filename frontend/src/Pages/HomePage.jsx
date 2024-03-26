@@ -92,7 +92,7 @@ const HomePage = () => {
     <Tab _hover={{ bg: 'blue.500' }} bg="#DFF5FF" width="50%" fontWeight="bold" fontSize="lg" style={{ color: 'black' }}><Icon as={FaTrophy} boxSize={6} mr={2} /><Link to="/achievements">Achievements</Link></Tab>
     <Tab _hover={{ bg: 'blue.500' }} bg="#DFF5FF" width="50%" fontWeight="bold" fontSize="lg" style={{ color: 'black' }}><Icon as={FaNewspaper} boxSize={6} mr={2} /><Link to="/news">News</Link></Tab>
     <Tab _hover={{ bg: 'blue.500' }} bg="#DFF5FF" width="50%" fontWeight="bold" fontSize="lg" style={{ color: 'black' }}><Icon as={FaInfoCircle} boxSize={6} mr={2} /><Link to="/about">About Us</Link></Tab>
-    <Tab _hover={{ bg: 'blue.500' }} bg="#DFF5FF" width="50%" fontWeight="bold" fontSize="lg" style={{ color: 'black' }}><Icon as={FaInfoCircle} boxSize={6} mr={2} /><Link to="/Signupc">ChatUp</Link></Tab>
+    {/* <Tab _hover={{ bg: 'blue.500' }} bg="#DFF5FF" width="50%" fontWeight="bold" fontSize="lg" style={{ color: 'black' }}><Icon as={FaInfoCircle} boxSize={6} mr={2} /><Link to="/Signupc">ChatUp</Link></Tab> */}
   </TabList>
   <TabPanels>
     <TabPanel>

@@ -6,6 +6,7 @@ import 'slick-carousel/slick/slick-theme.css';
 // import top2Image from './lefttop.png';
 import Image1 from './images/top2.png';
 import Image2 from './images/CHESS1.jpg';
+import Image3 from './images/chess3.jpg';
 import './GallerySlider.css';
 const GallerySlider = () => {
   const settings = {
@@ -22,7 +23,7 @@ const GallerySlider = () => {
   const images = [
      Image1,
      Image2,
-    'https://example.com/image1.jpg',
+     Image3,
     'https://example.com/image2.jpg',
    
     // Add more image URLs as needed

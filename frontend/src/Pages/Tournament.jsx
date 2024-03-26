@@ -108,7 +108,7 @@ import {
   Textarea,
 } from '@chakra-ui/react';
 import { FaPaperPlane } from 'react-icons/fa';
-import {Chessboard} from 'react-chessboard';
+import Chessboard from 'chessboardjsx';
 import {Chess}from 'chess.js'; // Import Chess from 'chess.js'
 //import Chessboard from '../components/Chessboard';
 
@@ -143,7 +143,7 @@ const TournamentPage = () => {
     <Box bg="gray.100" py={16}>
       <Container maxW="6xl">
         <Flex direction={{ base: 'column', md: 'row' }} align="center" justify="space-between">
-          {/* <Box mr={{ md: 8 }} flex="1">
+          <Box mr={{ md: 8 }} flex="1">
             <Heading as="h1" size="4xl" mb={6}>
               Online Tournament
             </Heading>
@@ -156,7 +156,7 @@ const TournamentPage = () => {
                 boxShadow: '0 5px 15px rgba(0, 0, 0, 0.5)',
               }}
             />
-          </Box> */}
+          </Box>
   <div>
       <h1>My Chessboard</h1>
       <Chessboard

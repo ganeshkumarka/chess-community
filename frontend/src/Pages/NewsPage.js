@@ -131,12 +131,11 @@ import {
   DrawerHeader,
   DrawerBody,
   List,
-  ListItem,
-  Link ,Icon
+  ListItem ,Icon
 } from '@chakra-ui/react';
 import { FaBars,FaHome } from 'react-icons/fa';
 import { AiOutlineHome } from 'react-icons/ai';
-
+import { Link } from 'react-router-dom';
 // In the JSX:
 <Icon as={AiOutlineHome} />
 
@@ -222,7 +221,7 @@ const NewsPage = () => {
             <DrawerBody>
               <List spacing={3}>
                 <ListItem _hover={{ color: 'blue.500', cursor: 'pointer' }}>
-                    <Link to="/home">HomePage</Link>
+                    <Link to="/">HomePage</Link>
                   </ListItem>
                 <ListItem _hover={{ color: 'blue.500', cursor: 'pointer' }}>
                    <Link to="/">Discussion Forum</Link>

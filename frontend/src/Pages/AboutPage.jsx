@@ -91,7 +91,8 @@
 
 // export default AboutPage;
 
-import React from 'react';
+// import React from 'react';
+import React, { useState } from 'react';
 import {
   Box,
   Container,
@@ -101,12 +102,80 @@ import {
   UnorderedList,
   ListItem,
   Icon,
+  Drawer,
+  DrawerOverlay,
+  DrawerContent,
+  DrawerCloseButton,
+  DrawerHeader,
+  DrawerBody,
+  List,
+  useColorModeValue,IconButton
+
 } from '@chakra-ui/react';
-import { FaChessKnight } from 'react-icons/fa';
+import { FaChessKnight,FaBars } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
+
+const Navigation = ({ handleDrawerToggle }) => {
+  return (
+    <Box
+      bg={useColorModeValue('gray.200', 'gray.800')}
+      p={4}
+      borderRadius="md"
+      ml={0}
+      alignSelf="flex-start"
+      position="absolute"
+      top={5}
+      left={5}
+    >
+      <IconButton
+        icon={<FaBars />}
+        aria-label="Toggle Navigation"
+        onClick={handleDrawerToggle}
+        mb={2}
+      />
+    </Box>
+  );
+};
 
 const AboutPage = () => {
+  const [isDrawerOpen, setIsDrawerOpen] = useState(false);
+
+  const handleDrawerToggle = () => {
+    setIsDrawerOpen(!isDrawerOpen);
+  };
   return (
+
     <Box bg="gray.100" py={16} marginTop={100} marginBottom={100}>
+      <Box>
+      <Navigation handleDrawerToggle={handleDrawerToggle} />
+      <Drawer placement="left" onClose={handleDrawerToggle} isOpen={isDrawerOpen}>
+        <DrawerOverlay>
+          <DrawerContent>
+            <DrawerCloseButton />
+            <DrawerHeader>NAVIGATE TO</DrawerHeader>
+            <DrawerBody>
+              <List spacing={3}>
+                <ListItem _hover={{ color: 'blue.500', cursor: 'pointer' }}>
+                    <Link to="/">HomePage</Link>
+                  </ListItem>
+                <ListItem _hover={{ color: 'blue.500', cursor: 'pointer' }}>
+                   <Link to="/">Discussion Forum</Link>
+                </ListItem>
+                <ListItem _hover={{ color: 'blue.500', cursor: 'pointer' }}>
+                   <Link to="/tournaments">Tournaments</Link>
+                </ListItem>
+                <ListItem _hover={{ color: 'blue.500', cursor: 'pointer' }}>
+                   <Link to="/achievements">Achievements</Link>
+                </ListItem>
+                <ListItem _hover={{ color: 'blue.500', cursor: 'pointer' }}>
+                  <Link to="/about">AboutUs</Link>
+                </ListItem>
+              </List>
+            </DrawerBody>
+          </DrawerContent>
+        </DrawerOverlay>
+      </Drawer>
+      </Box>
       <Container maxW="6xl">
         <Flex direction={{ base: 'column', md: 'row' }} align="center" justify="space-between" >
           <Box mr={{ md: 8 }}>
@@ -146,7 +215,7 @@ const AboutPage = () => {
               </ListItem>
             </UnorderedList>
           </Box>
-
+         
           
         </Flex>
       </Container>
